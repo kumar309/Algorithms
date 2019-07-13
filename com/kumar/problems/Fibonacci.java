@@ -15,13 +15,20 @@ public class Fibonacci {
         }
         int fib1 = 1;
         int fib2 = 1;
+        int nextfib = 0;
         for (int i = 3; i <= n; i++) {
             //System.out.println("fibo1:"+fib1 + " fibo2:"+fib2);
             fib = fib1 + fib2; //Fibonacci number is sum of previous two Fibonacci number
-            //System.out.println("fibonacci:"+fib);
+            System.out.println("fibonacci:"+fib);
 
             if (fib > n) {
-                return fib2;
+                //int nextfib = fib + fib2;
+                 nextfib = fib2 + fib;
+                System.out.println("fib:" + fib + " fib2:"+fib2 +  " nextfib:"+ (fib2 + fib));
+                int steps = Math.min((fib-n),(nextfib -n));
+                return steps;
+            }else{
+
             }
             fib1 = fib2;
             fib2 = fib;
