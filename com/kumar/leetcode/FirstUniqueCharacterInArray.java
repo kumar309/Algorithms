@@ -13,7 +13,7 @@ class FirstUniqueCharacterInArray {
 
     public Character firstUniqueChar(String s) {
         Character result = null;
-        if (s == null || s.length() == 0)
+        if (s == null || s.isEmpty())
             return null;
 
         Map<Character, Integer> freqMap = new LinkedHashMap<>(s.length() - 1);
