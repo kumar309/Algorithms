@@ -8,18 +8,16 @@ public class MaxStockProfit {
     public static void main(String[] args) {
         MaxStockProfit profit = new MaxStockProfit();
         int[] arr = {7,1,5,3,6,4};
-        System.out.println("original:" + Arrays.toString(arr));
-        //int[] arr = {7,6,4,3,1};
+        //System.out.println("original:" + Arrays.toString(arr));
         int result = profit.maxProfit(arr);
-        System.out.println("max profit:{}"+result);
-        //System.out.println("max profit:{}"+profit.maxprofit2(arr))
+        System.out.println("max profit:"+result);
     }
 
     public int maxProfit(int[] prices) {
         int res = 0;
         if(prices == null || prices.length <=1 )return res;
         int min = prices[0];
-        //System.out.println("min:"+min);
+        System.out.println("min:"+min);
         for(int i=1; i< prices.length; i++){
             System.out.println("min:"+min + " & prices[i]:"+prices[i]);
             if(prices[i] > min){

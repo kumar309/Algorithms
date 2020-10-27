@@ -8,8 +8,8 @@ class FirstUniqueCharacterInArray {
     public static void main(String[] args) {
         FirstUniqueCharacterInArray fuca = new FirstUniqueCharacterInArray();
         System.out.println(fuca.firstUniqueChar("loveleetcode"));
-        System.out.println(fuca.firstUniqueCharIndex("loveleetcode"));
-        System.out.println(fuca.firstUniqCharIndex("loveleetcode"));
+        System.out.println(fuca.firstUniqueCharIndex("leetcode"));
+        System.out.println(fuca.firstUniqCharIndex("indian"));
     }
 
     public Character firstUniqueChar(String s) {
@@ -36,7 +36,6 @@ class FirstUniqueCharacterInArray {
     }
 
     public int firstUniqueCharIndex(String s) {
-        Character result = null;
         if (s == null || s.length() == 0)
             return -1;
 
@@ -44,6 +43,7 @@ class FirstUniqueCharacterInArray {
         Map<Character, Integer> freqMap = new LinkedHashMap<>(s.length() - 1);
         for (int i = 0; i < s.length(); i++) {
             if (!freqMap.containsKey(c[i])) {
+                //store the index position of the first occurence of the element else store it as -1 for existing element
                 freqMap.put(c[i], i);
             } else {
                 freqMap.put(c[i], -1);
@@ -58,6 +58,7 @@ class FirstUniqueCharacterInArray {
         return -1;
     }
 
+    //alternative way
     public int firstUniqCharIndex(String s) {
         if (s == null || s.isEmpty())
             return -1;
