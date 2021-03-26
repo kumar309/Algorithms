@@ -10,6 +10,10 @@ package com.kumar.leetcode;
 
 public class MaximumSubArray {
 
+    /*
+      below method only works when array is purely non negative integers.
+      check maxSubArraySum2 for main solution.
+     */
     public int maxSubArraySum(int[] nums) {
         int maxSoFar = 0;
         int maxEndingHere = 0;
@@ -24,9 +28,25 @@ public class MaximumSubArray {
         return maxSoFar;
     }
 
+    public int maxSubArraySum2(int[] nums) {
+        int result = nums[0];
+        int sum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (sum <= 0) {
+                sum = nums[i];
+            } else {
+                sum += nums[i];
+            }
+            result = Math.max(result, sum);
+        }
+        return result;
+    }
+
+
     public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] nums = {-2, 11, -3, 14, -1, 12, 11, -5, -4};
+        //int[] nums = {-4,-3,-2,-1,-8,-7,1};
         MaximumSubArray msa = new MaximumSubArray();
-        System.out.println(msa.maxSubArraySum(nums));
+        System.out.println(msa.maxSubArraySum2(nums));
     }
 }
